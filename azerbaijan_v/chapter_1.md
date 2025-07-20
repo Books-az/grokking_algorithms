@@ -2,8 +2,6 @@
 
 Bu fəsildə ./ Kitabın qalan fəsilləri üçün əsaslar qoyulur . ./ Siz öz ilk axtarış alqoritminizi yazacaqsınız (binar axtarış) . ./ Siz alqoritmin icra müddətinin necə təsvir olunduğunu öyrənəcəksiniz ("Böyük O") . ./ Alqoritmlərin layihələndirilməsində tez-tez tətbiq olunan standart üsul təqdim olunacaq (rekursiya).
 
-
-
 # Giriş
 
 Alqoritm dedikdə müəyyən bir tapşırığı yerinə yetirmək üçün təlimatlar toplusu başa düşülür. Prinsipcə, proqram kodunun istənilən hissəsini alqoritm adlandırmaq olar, lakin bu kitabda daha maraqlı mövzular nəzərdən keçirilir. Mən bu kitab üçün alqoritmləri seçərkən onların sürətli olmasına və ya maraqlı məsələləri həll etməsinə... və ya həm birini, həm də digərini eyni zamanda yerinə yetirməsinə diqqət yetirdim. Budur yalnız bir neçə nümunə.
@@ -25,6 +23,7 @@ Hər bir halda mən alqoritmi təsvir edəcəyəm və nümunə gətirəcəyəm. 
 İndi yaxşı xəbər: çox güman ki, bu kitabdakı hər bir alqoritmin tətbiqi artıq sizin sevimli proqramlaşdırma dilinizdə mövcuddur və hər bir alqoritmi özünüz yazmaq məcburiyyətində qalmayacaqsınız! Lakin əgər onun üstünlüklərini və çatışmazlıqlarını başa düşməsəniz, istənilən tətbiq faydasız olacaq. Bu kitabda siz müxtəlif alqoritmlərin güclü və zəif tərəflərini müqayisə etməyi öyrənəcəksiniz: birləşdirmə çeşidləməsi ilə sürətli çeşidləmə arasında hansı mülahizələrə əsasən seçim etmək lazımdır? Nədən istifadə etmək - massivdən yoxsa siyahıdan? Hətta başqa məlumat strukturunun seçilməsi belə nəticəyə güclü təsir göstərə bilər.
 
 # What you’ll learn about performance
+
 The good news is that an implementation of every algorithm in this
 book is probably available in your favorite language, so you don’t
 have to write each algorithm yourself! But those implementations are
@@ -32,8 +31,6 @@ useless if you don’t understand the tradeoffs. In this book, you’ll learn
 to compare tradeoffs between different algorithms: Should you use
 merge sort or quicksort? Should you use an array or a list? Just using a
 different data structure can make a big difference.
-
-
 
 # Məsələlərin həlli haqqında nə öyrənəcəksiniz
 
@@ -52,7 +49,6 @@ Daha ümumi şəkildə, bu kitabın sonunda siz ən geniş tətbiq olunan alqori
 ## Original text (English)
 
 What you'll learn about solving problems You'll learn techniques for solving problems that might have been out of your grasp until now. For example: • If you like making video games, you can write an AI system that follows the user around using graph algorithms. • You'll learn to make a recommendations system using k-nearest neighbors. • Some problems aren't solvable in a timely manner! The part of this book that talks about NP-complete problems shows you how to identify those problems and come up with an algorithm that gives you an approximate answer. More generally, by the end of this book, you'll know some of the most widely applicable algorithms. You can then use your new knowledge to learn about more specific algorithms for AI, databases, and so on. Or you can take on bigger challenges at work.
-
 
 # Bilməli olduqlarınız
 
@@ -92,8 +88,6 @@ Binary search Suppose you're searching for a person in the phone book (what an o
 
 Now here's an example of how binary search works. I'm thinking of a number between 1 and 100.
 
-
-
 # Rəqəm təxmin oyunu
 
 Siz mənim rəqəmimi mümkün qədər az cəhdlə təxmin etməlisiniz. Hər təxmindən sonra mən sizə təxmininizin çox kiçik, çox böyük, yoxsa düzgün olduğunu deyəcəyəm. Tutaq ki, belə təxmin etməyə başlayırsınız: 1, 2, 3, 4, . . . . Belə gedəcək.
@@ -124,8 +118,6 @@ Budur daha yaxşı texnika. 50 ilə başlayın. Çox kiçikdir, lakin siz indic�
 
 A better way to search Here's a better technique. Start with 50. Too low, but you just eliminated half the numbers! Now you know that 1–50 are all too low. Next guess: 75. Too high, but again you cut down half the remaining numbers! With binary search, you guess the middle number and eliminate half the remaining numbers every time. Next is 63 (halfway between 50 and 75).
 
-
-
 # Binar axtarış
 
 Bu binar axtarışdır. Siz indicə ilk alqoritminizi öyrəndiniz! Budur hər dəfə neçə rəqəmi aradan qaldıra biləcəyiniz. Hansı rəqəmi düşünməyimdən asılı olmayaraq, siz maksimum yeddi təxminlə tapa bilərsiniz - çünki hər təxminlə çox sayda rəqəmi aradan qaldırırsınız!
@@ -149,6 +141,7 @@ Beləliklə, binar axtarış 18 addım atacaq - böyük fərq! Ümumiyyətlə, n
 So binary search will take 18 steps—a big difference! In general, for any list of n, binary search will take log2 n steps to run in the worst case, whereas simple search will take n steps.
 
 ## Izah
+
 log₂(n) nə deməkdir?
 log₂(n), ədədi neçə dəfə 2-yə vurmaqla əldə etdiyimizi göstərir.
 
@@ -192,7 +185,6 @@ Bu kitabda log müddətindən çox danışacağam, ona görə də loqariflərin 
 
 Note I'll talk about log time a lot in this book, so you should understand the concept of logarithms. If you don't, Khan Academy (https://khanacademy.org) has a nice video that makes it clear.
 
-
 # Qeyd
 
 Binar axtarış yalnız siyahınız çeşidlənmiş qaydada olduqda işləyir. Məsələn, telefon kitabındakı adlar əlifba sırası ilə çeşidlənib, ona görə də ad axtarmaq üçün binar axtarışdan istifadə edə bilərsiniz. Əgər adlar çeşidlənməmiş olsaydı nə baş verərdi?
@@ -202,7 +194,6 @@ Binar axtarış yalnız siyahınız çeşidlənmiş qaydada olduqda işləyir. M
 ## Original text (English)
 
 Note Binary search only works when your list is in sorted order. For example, the names in a phone book are sorted in alphabetical order, so you can use binary search to look for a name. What would happen if the names weren't sorted?
-
 
 # Python-da binar axtarışın necə yazılacağına baxaq
 
@@ -239,16 +230,28 @@ high = len(arr) - 1
 
 ![alt text](image.png)
 
+burada
 
+```js
+const number_ = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+function binarySearch(list, item) {
+  let low = 0;
+  let high = list.length - 1;
+  while (low <= high) {
+    let mid = Math.floor((low + high) / 2);
+    let gues = list[mid];
 
+    if (gues === item) {
+      return mid;
+    } else if (gues > item) {
+      high = mid - 1;
+    } else {
+      low = mid + 1;
+    }
+  }
+  return null;
+}
 
-
-
-
-
-
-
-
-
-
+console.log(binarySearch(number_, 8));
+```
