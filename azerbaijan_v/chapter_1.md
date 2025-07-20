@@ -255,3 +255,42 @@ function binarySearch(list, item) {
 
 console.log(binarySearch(number_, 8));
 ```
+
+
+# Binary Search – Maksimum Addım Sayı
+
+Bu sənəd binary search alqoritminin effektivliyini göstərmək üçün sadə nümunə təqdim edir.
+
+---
+
+## 1.1 Məsələ
+
+**Sual:**
+128 elementdən ibarət sıralanmış siyahıda binary search tətbiq edirik.
+**Maksimum neçə addım** atıla bilər?
+
+**Həll:**
+Binary search-də hər addımda siyahı iki yerə bölünür, yəni maksimum addım sayı `log₂(n)` olur.
+
+Burada:
+
+✅ **Cavab:** 7 addım
+
+---
+
+## 1.2 Məsələ
+
+**Sual:**
+Əgər siyahının ölçüsünü ikiqat artırsan (`128 × 2 = 256`), **maksimum neçə addım** olar?
+
+**Həll:**
+
+✅ **Cavab:** 8 addım
+## Nəticə
+
+| Siyahı uzunluğu | Maksimum Binary Search Addımı |
+|------------------|-------------------------------|
+| 128              | 7                             |
+| 256              | 8                             |
+
+Binary search alqoritmi **çox effektivdir**, çünki siyahının ölçüsü 2 dəfə artsa da, maksimum addım sayı sadəcə **1 vahid artır**.
