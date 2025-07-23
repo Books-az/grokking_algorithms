@@ -281,3 +281,284 @@ Buna görə də, əlavə etmə əməliyyatlarının üstünlük təşkil etdiyi 
 
 Suppose you’re building an app to keep track of your finances. Every day, you write down everything you spent money on. At the end of the month, you review your expenses and sum up how much you spent. So you have lots of inserts and a few reads. Should you use an array or a list?
 ![alt text](image-6.png)
+# Siyahının ortasına daxil etmə
+
+Tutaq ki, tapşırıq siyahınızın daha çox təqvim kimi işləməsini istəyirsiniz. Əvvəllər siz siyahının sonuna əşyalar əlavə edirdiniz. İndi isə onları yerinə yetirilməli olduqları ardıcıllıqla əlavə etmək istəyirsiniz.
+
+---
+
+## Original text (English)
+
+# Inserting into the middle of a list
+
+Suppose you want your to-do list to work more like a calendar. Earlier, you were adding things to the end of the list. Now, you want to add them in the order in which they should be done.
+![alt text](image-7.png)
+# Ortaya daxil etmə: Massivlər yoxsa siyahılar?
+
+Əgər elementləri ortaya daxil etmək istəyirsinizsə, nə daha yaxşıdır: massivlər yoxsa siyahılar? Siyahılarla bu, əvvəlki elementin nəyə işarə etdiyini dəyişdirmək qədər asandır.
+
+---
+
+## Original text (English)
+
+# Insert Middle Comparison
+
+What’s better if you want to insert elements in the middle: arrays or lists? With lists, it’s as easy as changing what the previous element points to.
+![alt text](image-8.png)
+
+# Massivə daxil etmə: Sürüşdürmə
+
+Lakin massivlər üçün qalan bütün elementləri aşağı sürüşdürməlisiniz.
+
+---
+
+## Original text (English)
+
+# Array Insert: Shifting
+
+But for arrays, you have to shift all the rest of the elements down.
+![alt text](image-9.png)
+# Bağlı siyahıların daxil etmə üstünlüyü
+
+Və əgər yer yoxdursa, hər şeyi yeni bir yerə köçürməli ola bilərsiniz! Elementləri ortaya daxil etmək istəyirsinizsə, siyahılar daha yaxşıdır.
+
+---
+
+## Original text (English)
+
+# Linked List Insert Advantage
+
+And if there’s no space, you might have to copy everything to a new location! Lists are better if you want to insert elements into the middle.
+
+# Göstəricilər
+
+Mən bağlı siyahıdakı hər bir elementin siyahıdakı növbəti elementə necə işarə etdiyi haqqında çox danışdım. Bəs bu, tam olaraq necə baş verir? Göstəricilərdən istifadə etməklə.
+
+---
+
+## Original text (English)
+
+# Pointers
+
+I have talked a lot about how each item in a linked list points to the next item in the list. But how does it do that exactly? By using pointers.
+![alt text](image-10.png)
+
+# Göstərici tərifi
+
+Bağlı siyahınızdakı hər bir elementlə, növbəti elementin ünvanını saxlamaq üçün bir az yaddaşdan istifadə edirsiniz. Buna göstərici deyilir. Siz bəzən "göstəricilər" sözünü eşidəcəksiniz, xüsusilə də C kimi aşağı səviyyəli bir dildə yazırsınızsa. Buna görə də onun nə demək olduğunu bilmək yaxşıdır.
+
+---
+
+## Original text (English)
+
+# Pointer Definition
+
+With each item in your linked list, you use a little bit of memory to store the address of the next item. This is called a pointer. You will hear the word pointers come up sometimes, especially if you write using a lower-level language like C. So it’s good to know what it means.
+
+# Silmələr
+
+Bəs bir elementi silmək istəsəniz necə? Yenə də siyahılar daha yaxşıdır, çünki sadəcə əvvəlki elementin nəyə işarə etdiyini dəyişdirmək lazımdır. Massivlərdə, bir elementi sildiyiniz zaman hər şey yuxarıya doğru hərəkət etməlidir.
+
+Daxil etmələrdən fərqli olaraq, silmələr həmişə işləyəcək. Daxil etmələr bəzən yaddaşda yer qalmadıqda uğursuz ola bilər. Lakin bir elementi həmişə silə bilərsiniz.
+
+Budur massivlər və bağlı siyahılar üzərində ümumi əməliyyatlar üçün icra müddətləri.
+
+---
+
+## Original text (English)
+
+# Deletions
+
+What if you want to delete an element? Again, lists are better because you just need to change what the previous element points to. With arrays, everything needs to be moved up when you delete an element. Unlike insertions, deletions will always work. Insertions can fail sometimes when there’s no space left in memory. But you can always delete an element. Here are the run times for common operations on arrays and linked lists
+
+![alt text](image-11.png)
+# Silmə mürəkkəbliyi haqqında qeyd
+
+Qeyd etmək lazımdır ki, daxil etmə və silmə əməliyyatları yalnız silinəcək elementə dərhal daxil ola bilsəniz O(1) vaxtı tələb edir. Bağlı siyahıda ilk və son elementləri izləmək ümumi bir praktikadır, buna görə də onları silmək yalnız O(1) vaxtı tələb edəcək.
+
+---
+
+## Original text (English)
+
+# Deletion Complexity Note
+
+It’s worth mentioning that insertions and deletions are O(1) time only if you can instantly access the element to be deleted. It’s a common practice to keep track of the first and last items in a linked list, so it would take only O(1) time to delete those.
+
+# Hansı daha çox istifadə olunur, massivlər yoxsa bağlı siyahılar?
+
+Massivlər bağlı siyahılara nisbətən bir çox üstünlüklərə malik olduğu üçün tez-tez istifadə olunur. Birincisi, onlar oxuma əməliyyatlarında daha yaxşıdırlar. Massivlər təsadüfi giriş təmin edir. İki fərqli giriş növü var: təsadüfi giriş və ardıcıl giriş. Ardıcıl giriş elementləri bir-bir, ilk elementdən başlayaraq oxumaq deməkdir. Bağlı siyahılar yalnız ardıcıl giriş edə bilər. Əgər bağlı siyahının 10-cu elementini oxumaq istəyirsinizsə, ilk doqquz elementi oxumalı və 10-cu elementə keçmək üçün bağlantıları izləməlisiniz. Təsadüfi giriş o deməkdir ki, siz birbaşa 10-cu elementə tullana bilərsiniz. Massivlər təsadüfi giriş təmin edir. Bir çox istifadə halları təsadüfi giriş tələb edir, buna görə də massivlər çox istifadə olunur. Təsadüfi girişdən başqa, massivlər keşləmə (caching) istifadə edə bildikləri üçün daha sürətlidir.
+
+---
+
+## Original text (English)
+
+# Which is used more, arrays or linked lists?
+
+Arrays are often used because they have a lot of advantages over linked lists. First, they are better at reads. Arrays provide random access. There are two different types of access: random access and sequential access. Sequential access means reading the elements one by one, starting with the first element. Linked lists can only do sequential access. If you want to read the 10th element of a linked list, you have to read the first nine elements and follow the links to the 10th element. Random access means you can jump directly to the 10th element. Arrays provide random access. A lot of use cases require random access, so arrays are used a lot. Even beyond random access, though, arrays are faster because they can use caching
+# Elementləri oxumaq
+
+Bəlkə də oxumağı belə təsəvvür edirsiniz, bir elementi bir dəfəyə oxuyursunuz.
+
+---
+
+## Original text (English)
+
+# Reading Items
+
+Maybe you are picturing reads like this, reading one item at a time
+![alt text](image-12.png)
+
+# Kompüter oxumaları
+
+Lakin reallıqda, kompüterlər bir dəfəyə bütöv bir hissəni oxuyurlar, çünki bu, növbəti elementə keçməyi xeyli sürətləndirir:
+
+---
+
+## Original text (English)
+
+# Computer Reads
+
+But in reality, computers read a whole section at a time because that makes it a lot faster to go to the next item:
+
+![alt text](image-13.png)
+# Massivlərin oxuma səmərəliliyi
+
+Bu, massivlərlə edə biləcəyiniz bir şeydir. Massivlə siz elementlərin bütöv bir hissəsini oxuya bilərsiniz. Lakin bunu bağlı siyahı ilə edə bilməzsiniz! Növbəti elementin harada olduğunu bilmirsiniz. Bir elementi oxumalı, növbəti elementin harada olduğunu öyrənməli və sonra növbəti elementi oxumalısınız. Beləliklə, massivlər sizə təsadüfi giriş verməklə yanaşı, həm də daha sürətli ardıcıl giriş təmin edir! Massivlər oxuma əməliyyatları üçün daha yaxşıdır.
+
+Bəs yaddaş səmərəliliyi necədir? Əvvəllər demişdim ki, massivlərlə siz adətən ehtiyacınız olandan daha çox yer tələb edirsiniz və əgər tələb etdiyiniz əlavə yaddaşı istifadə etməsəniz, o, israf olunur?
+
+---
+
+## Original text (English)
+
+# Arrays Read Efficiency
+
+This is something you can do with arrays. With an array, you can read a whole section of items. But you can’t do this with a linked list! You don’t know where the next item is. You need to read an item, find out where the next item is, and then read the next item. So not only do arrays give you random access, but they also provide faster sequential access! Arrays are better for reads. What about memory efficiency? Remember earlier I said that with arrays, you typically request more space than you need, and if you don’t end up using that extra memory you requested, it is wasted?
+![alt text](image-14.png)
+
+# Yaddaş səmərəliliyi
+
+Yaxşı, reallıqda, bu cür israf edilmiş yaddaş çox deyil. Digər tərəfdən, bağlı siyahıdan istifadə etdiyiniz zaman, hər element üçün əlavə yaddaş istifadə edirsiniz, çünki növbəti elementin ünvanını saxlamaq lazımdır. Beləliklə, hər bir element kifayət qədər kiçikdirsə, bağlı siyahılar daha çox yer tutacaq. Budur eyni məlumat massiv və bağlı siyahı kimi. Görə bilərsiniz ki, bağlı siyahı daha çox yer tutur.
+
+---
+
+## Original text (English)
+
+# Memory Efficiency
+
+Well, in reality, there is not much wasted space like this. On the other hand, when you use a linked list, you are using extra memory per item because you need to store the address of the next item. So linked lists will take up more space if each item is pretty small. Here’s the same information as an array and a linked list. You can see the linked list takes up more space.
+![alt text](image-15.png)
+# Massiv və bağlı siyahı müqayisəsi: Nəticə
+
+Əlbəttə, əgər hər bir element böyükdürsə, o zaman hətta tək bir israf edilmiş yer də böyük bir problem ola bilər və göstəriciləri saxlamaq üçün istifadə etdiyiniz əlavə yaddaş müqayisədə olduqca kiçik görünə bilər. Beləliklə, massivlər xüsusi istifadə halları istisna olmaqla, bağlı siyahılardan daha tez-tez istifadə olunur.
+
+---
+
+## Original text (English)
+
+# Array and Linked List Comparison: Conclusion
+
+Of course, if each item is big, then even a single slot of wasted space can be a big deal, and that extra memory you’re using to store the pointers can feel pretty small by comparison. So arrays are used more often than linked lists except in specific use cases.
+
+### EXERCISES
+### Tapşırıqlar
+![alt text](image-16.png)
+# TAPŞIRIQ 2.2
+
+Tutaq ki, siz restoranlar üçün müştəri sifarişlərini qəbul etmək üçün bir tətbiq qurursunuz. Tətbiqiniz sifarişlər siyahısını saxlamalıdır. Ofisiantlar bu siyahıya sifarişlər əlavə edir, aşpazlar isə siyahıdan sifarişləri götürüb hazırlayırlar. Bu, sifariş növbəsidir: ofisiantlar sifarişləri növbənin sonuna əlavə edir, aşpaz isə növbədən ilk sifarişi götürüb bişirir. Bu növbəni tətbiq etmək üçün massivdən yoxsa bağlı siyahıdan istifadə edərdiniz? (İpucu: Bağlı siyahılar əlavə etmək/silmək üçün yaxşıdır, massivlər isə təsadüfi giriş üçün yaxşıdır. Burada hansını edəcəksiniz?)
+
+**Cavab:** Bu növbəni tətbiq etmək üçün **bağlı siyahıdan** istifadə etmək daha yaxşıdır.
+
+**İzahı:**
+*   **Sifarişlərin əlavə edilməsi (enqueue):** Ofisiantlar sifarişləri növbənin sonuna əlavə edirlər. Bağlı siyahıda sona element əlavə etmək (quyruq göstəricisi varsa) O(1) vaxtı tələb edir. Massivdə isə bu, amortizasiya olunmuş O(1) olsa da, bəzən massivin ölçüsünü dəyişdirmək lazım gəldikdə O(n) ola bilər.
+*   **Sifarişlərin götürülməsi (dequeue):** Aşpazlar sifarişləri növbənin əvvəlindən götürürlər. Bağlı siyahıda əvvəldən element silmək O(1) vaxtı tələb edir. Lakin massivdə əvvəldən element sildikdə, qalan bütün elementləri sürüşdürmək lazım gəlir ki, bu da O(n) vaxtı tələb edir.
+
+Bu ssenaridə həm əlavə etmə, həm də silmə əməliyyatları tez-tez baş verir və bağlı siyahılar hər iki əməliyyat üçün daha səmərəli (O(1)) performans təmin edir, massivlərin silmə əməliyyatlarında yaranan O(n) sürüşdürmə problemini aradan qaldırır.
+
+---
+
+## Original text (English)
+
+# EXERCISE 2.2
+
+Suppose you’re building an app for restaurants to take customer orders. Your app needs to store a list of orders. Servers keep adding orders to this list, and chefs take orders off the list and make them. It’s an order queue: servers add orders to the back of the queue, and the chef takes the first order off the queue and cooks it. Would you use an array or a linked list to implement this queue? (Hint: Linked lists are good for inserts/deletes, and arrays are good for random access. Which one are you going to be doing here?)
+
+# TAPŞIRIQ 2.3
+
+Gəlin bir düşüncə təcrübəsi edək. Tutaq ki, Facebook istifadəçi adlarının siyahısını saxlayır. Kimsə Facebook-a daxil olmağa çalışdıqda, onun istifadəçi adı axtarılır. Əgər adı istifadəçi adları siyahısındadırsa, daxil ola bilər. İnsanlar Facebook-a tez-tez daxil olurlar, buna görə də bu istifadəçi adları siyahısında çoxlu axtarışlar aparılır. Tutaq ki, Facebook siyahını axtarmaq üçün binar axtarışdan istifadə edir. Binar axtarış təsadüfi girişə ehtiyac duyur - istifadəçi adları siyahısının ortasına dərhal çata bilməlisiniz. Bunu bilərək, siyahını massiv yoxsa bağlı siyahı kimi tətbiq edərdiniz?
+
+**Cavab:** Bu siyahını **massiv** kimi tətbiq edərdim.
+
+**İzahı:**
+*   **Çoxlu axtarışlar (searches):** Ssenaridə qeyd olunur ki, "İnsanlar Facebook-a tez-tez daxil olurlar, buna görə də bu istifadəçi adları siyahısında çoxlu axtarışlar aparılır." Massivlər təsadüfi girişə imkan verdiyi üçün axtarış əməliyyatlarında (xüsusilə binar axtarış kimi alqoritmlərlə) çox səmərəlidir (O(1) təsadüfi elementə giriş, binar axtarış üçün O(log n)). Bağlı siyahılar isə təsadüfi girişə imkan vermir, yəni hər dəfə axtarış üçün siyahının əvvəlindən başlamaq lazımdır ki, bu da axtarışları O(n) edir.
+*   **Binar axtarış tələbi:** Mətn açıq şəkildə qeyd edir ki, "Binar axtarış təsadüfi girişə ehtiyac duyur - istifadəçi adları siyahısının ortasına dərhal çata bilməlisiniz." Bu, massivlərin əsas üstünlüyüdür. Bağlı siyahılarla siyahının ortasına dərhal çatmaq mümkün deyil.
+
+Buna görə də, axtarışların dominant olduğu və binar axtarışın tələb olunduğu bu vəziyyətdə massiv daha yaxşı seçimdir.
+
+---
+
+## Original text (English)
+
+# EXERCISE 2.3
+
+Let’s run a thought experiment. Suppose Facebook keeps a list of usernames. When someone tries to log in to Facebook, a search is done for their username. If their name is in the list of usernames, they can log in. People log in to Facebook pretty often, so there are a lot of searches through this list of usernames. Suppose Facebook uses binary search to search the list. Binary search needs random access—you need to be able to get to the middle of the list of usernames instantly. Knowing this, would you implement the list as an array or a linked list?
+
+
+# TAPŞIRIQ 2.4
+
+İnsanlar Facebook-a tez-tez qeydiyyatdan keçirlər. Tutaq ki, istifadəçilər siyahısını saxlamaq üçün massivdən istifadə etməyə qərar verdiniz. Massivin əlavə etmə əməliyyatları üçün hansı çatışmazlıqları var? Xüsusilə, tutaq ki, girişləri axtarmaq üçün binar axtarışdan istifadə edirsiniz. Massivə yeni istifadəçilər əlavə etdikdə nə baş verir?
+
+**Cavab:**
+
+Massivin əlavə etmə əməliyyatları üçün əsas çatışmazlıqları bunlardır:
+
+1.  **Elementlərin sürüşdürülməsi:** Massivlər ardıcıl yaddaş yerləri tələb etdiyi üçün, əgər yeni istifadəçi siyahının ortasına və ya əvvəlinə əlavə edilirsə (məsələn, əlifba sırasını qorumaq üçün), mövcud elementlərin hamısı və ya bir hissəsi yeni elementə yer açmaq üçün sürüşdürülməlidir. Bu, O(n) vaxtı tələb edən bir əməliyyatdır, burada n massivdəki elementlərin sayıdır. Facebook kimi böyük bir sistemdə bu, çox yavaş ola bilər.
+
+2.  **Massivin ölçüsünün dəyişdirilməsi (resizing):** Əgər massiv doludursa və yeni element əlavə etmək üçün yer yoxdursa, kompüter yaddaşda daha böyük, ardıcıl bir yer tapmalı, bütün mövcud elementləri ora köçürməli və sonra yeni elementi əlavə etməlidir. Bu, çox bahalı bir əməliyyatdır və O(n) vaxtı tələb edir. Facebook-da milyonlarla istifadəçi olduğu üçün bu, tez-tez baş verə bilər.
+
+**Binar axtarışdan istifadə edərkən yeni istifadəçilər əlavə etdikdə nə baş verir?**
+
+Binar axtarışın işləməsi üçün siyahının **çeşidlənmiş** olması vacibdir. Buna görə də, yeni istifadəçi əlavə edildikdə, siyahının çeşidlənmiş qalmasını təmin etmək üçün yeni istifadəçi düzgün yerə daxil edilməlidir. Yuxarıda qeyd olunduğu kimi, massivə element daxil etmək (xüsusilə ortaya) elementlərin sürüşdürülməsini tələb edir ki, bu da O(n) vaxtı aparır. Bu o deməkdir ki, hər yeni istifadəçi qeydiyyatdan keçdikdə, Facebook-un istifadəçi siyahısını yeniləməsi potensial olaraq çox yavaş ola bilər.
+
+Nəticə olaraq, massivlər axtarışlar üçün əla olsa da, tez-tez əlavə etmə əməliyyatları (xüsusilə çeşidlənmiş siyahıya) tələb olunan ssenarilərdə (məsələn, Facebook-a yeni istifadəçilərin qeydiyyatı) onların performansı ciddi şəkildə pisləşə bilər.
+
+---
+
+## Original text (English)
+
+# EXERCISE 2.4
+
+People sign up for Facebook pretty often, too. Suppose you decided to use an array to store the list of users. What are the downsides of an array for inserts? In particular, suppose you’re using binary search to search for logins. What happens when you add new users to an array?
+
+# TAPŞIRIQ 2.5
+
+Reallıqda, Facebook istifadəçi məlumatlarını saxlamaq üçün nə massivdən, nə də bağlı siyahıdan istifadə edir. Gəlin hibrid məlumat strukturuna baxaq: bağlı siyahılardan ibarət massiv. Sizin 26 yuvalı bir massiviniz var. Hər yuva bir bağlı siyahıya işarə edir. Məsələn, massivdəki birinci yuva A hərfi ilə başlayan bütün istifadəçi adlarını ehtiva edən bağlı siyahıya işarə edir. İkinci yuva B hərfi ilə başlayan bütün istifadəçi adlarını ehtiva edən bağlı siyahıya işarə edir və s.
+
+Tutaq ki, Adit B Facebook-a qeydiyyatdan keçir və siz onu siyahıya əlavə etmək istəyirsiniz. Siz massivdəki 1-ci yuvaya gedirsiniz, 1-ci yuva üçün bağlı siyahıya keçirsiniz və Adit B-ni sona əlavə edirsiniz.
+
+İndi, tutaq ki, Zakhir H-ni axtarmaq istəyirsiniz. Siz 26-cı yuvaya gedirsiniz, bu da bütün Z adlarının bağlı siyahısına işarə edir. Sonra Zakhir H-ni tapmaq üçün həmin siyahıda axtarış edirsiniz.
+
+Bu hibrid məlumat strukturunu massivlər və bağlı siyahılarla müqayisə edin. Axtarış və daxil etmə əməliyyatları üçün hər birindən daha yavaş yoxsa daha sürətlidir? Böyük O icra müddətlərini verməyə ehtiyac yoxdur, sadəcə məlumat strukturunun daha sürətli yoxsa daha yavaş olacağını qeyd edin.
+
+**Cavab:**
+
+Bu hibrid məlumat strukturu (bağlı siyahılardan ibarət massiv) həm axtarış, həm də daxil etmə əməliyyatları üçün fərqli performans xüsusiyyətlərinə malikdir:
+
+**Axtarış üçün:**
+
+*   **Massivdən (çeşidlənmiş və binar axtarışla) daha yavaş:** Çeşidlənmiş massivdə binar axtarış O(log n) vaxtı tələb edir ki, bu da çox sürətlidir. Hibrid strukturda əvvəlcə massiv yuvasına O(1) vaxtda daxil olursunuz, lakin sonra həmin yuvadakı bağlı siyahıda axtarış etməlisiniz ki, bu da O(k) vaxtı tələb edir (burada k həmin hərflə başlayan adların sayıdır). Əgər bir hərflə çoxlu ad varsa, bu, binar axtarışdan daha yavaş ola bilər.
+*   **Bağlı siyahıdan (tək, böyük) daha sürətli:** Tək, böyük bir bağlı siyahıda axtarış həmişə O(n) vaxtı tələb edir, çünki hər elementi bir-bir keçməlisiniz. Hibrid strukturda isə axtarış sahəsi hərflərin sayına görə bölündüyü üçün (məsələn, 26 hissəyə), axtarış xeyli sürətlənir.
+
+**Daxil etmə (insert) üçün:**
+
+*   **Massivdən (çeşidlənmiş) daha sürətli:** Çeşidlənmiş massivə element daxil etmək O(n) vaxtı tələb edir, çünki elementləri sürüşdürmək və ya massivi yenidən ölçüləndirmək lazım gəlir. Hibrid strukturda isə siz sadəcə müvafiq bağlı siyahının sonuna element əlavə edirsiniz ki, bu da O(1) vaxtı tələb edir (əgər bağlı siyahının sonuna birbaşa girişiniz varsa).
+*   **Bağlı siyahıdan (tək, böyük) oxşar sürətdə:** Tək bir bağlı siyahıya element daxil etmək O(1) vaxtı tələb edir. Hibrid strukturda da bu, əsasən O(1) vaxtı tələb edir, çünki massiv yuvasına giriş O(1)-dir və sonra bağlı siyahıya əlavə etmək də O(1)-dir.
+
+**Xülasə:**
+
+*   **Axtarış:** Hibrid struktur **tək bağlı siyahıdan daha sürətli**, lakin **çeşidlənmiş massivdə binar axtarışdan daha yavaşdır**.
+*   **Daxil etmə:** Hibrid struktur **massivdən daha sürətli** və **tək bağlı siyahı ilə oxşar sürətdədir**.
+
+Bu hibrid struktur, əslində, **hash cədvəllərinin** (hash tables) əsasını təşkil edir, hansılar ki, real sistemlərdə çox geniş istifadə olunur.
+![alt text](image-17.png)
+
