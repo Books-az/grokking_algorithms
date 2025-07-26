@@ -159,6 +159,27 @@ console.log(selectionSort([5, 3, 6, 2, 10])); // [2, 3, 5, 6, 10]
 
 ```
 
+```js
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let minIndex = i;
+
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
+      }
+    }
+
+    // Dəyişdirmək (swap)
+    [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+  }
+
+  return arr;
+}
+
+console.log(selectionSort([5, 2, 4, 1, 3])); // [1, 2, 3, 4, 5]
+```
+
 # Xülasə
 
 *   Kompüterinizin yaddaşı nəhəng bir çekmece dəstinə bənzəyir.
