@@ -413,6 +413,209 @@ Suppose you call greet("maggie"). First, your computer allocates a box of memory
 
 ![alt text](image-7.png)
 
+# Çağırış yığını: Addım 2
+
+Hər dəfə bir funksiya çağırdığınız zaman, kompüteriniz həmin çağırış üçün bütün dəyişənlərin dəyərlərini yaddaşda bu şəkildə saxlayır. Sonra, "salam, maggie!" çap edirsiniz. Daha sonra `greet2("maggie")` funksiyasını çağırırsınız. Yenə də, kompüteriniz bu funksiya çağırışı üçün bir yaddaş qutusu ayırır.
+
+---
+
+## Original text (English)
+
+# Call Stack: Step 2
+
+Every time you make a function call, your computer saves the values for all the variables for that call in memory like this. Next, you print hello, maggie! Then you call greet2("maggie"). Again, your computer allocates a box of memory for this function call.
+![alt text](image-8.png)
+# Çağırış yığını: Addım 3
+
+Kompüteriniz bu qutular üçün bir yığın (stack) istifadə edir. İkinci qutu birincinin üstünə əlavə olunur. "Necəsən, maggie?" çap edirsiniz. Sonra funksiya çağırışından qayıdırsınız. Bu baş verdikdə, yığının üstündəki qutu çıxarılır (`pop`).
+
+---
+
+## Original text (English)
+
+# Call Stack: Step 3
+
+Your computer is using a stack for these boxes. The second box is added on top of the first one. You print how are you, maggie? Then you return from the function call. When this happens, the box on top of the stack gets popped off.
+![alt text](image-9.png)
+# Çağırış yığını: Addım 4
+
+İndi yığının ən üstündəki qutu `greet` funksiyası üçündür, bu da `greet` funksiyasına qayıtdığınız deməkdir. `greet2` funksiyasını çağırdığınız zaman, `greet` funksiyası qismən tamamlanmış vəziyyətdə idi. Bu bölmənin əsas ideyası budur: bir funksiyadan başqa bir funksiyanı çağırdığınız zaman, çağıran funksiya qismən tamamlanmış vəziyyətdə dayandırılır. Həmin funksiya üçün bütün dəyişənlərin dəyərləri hələ də çağırış yığınında (yəni yaddaşda) saxlanılır. İndi `greet2` funksiyasını bitirdiyiniz üçün `greet` funksiyasına qayıdırsınız və qaldığınız yerdən davam edirsiniz. Əvvəlcə "sağollaşmağa hazırlaşıram..." çap edirsiniz. Sonra `bye` funksiyasını çağırırsınız.
+
+---
+
+## Original text (English)
+
+# Call Stack: Step 4
+
+Now the topmost box on the stack is for the greet function, which means you returned to the greet function. When you called the greet2 function, the greet function was partially completed. This is the big idea behind this section: when you call a function from another function, the calling function is paused in a partially completed state. All the values of the variables for that function are still stored on the call stack (i.e., in memory). Now that you’re done with the greet2 function, you’re back to the greet function, and you pick up where you left off. First, you print getting ready to say bye... Then you call the bye function.
+![alt text](image-10.png)
+
+# Çağırış yığını: Addım 5
+
+Həmin funksiya üçün bir qutu yığının üstünə əlavə olunur. Sonra "ok bye!" çap edirsiniz və funksiya çağırışından qayıdırsınız.
+
+---
+
+## Original text (English)
+
+# Call Stack: Step 5
+
+A box for that function is added to the top of the stack. Then you print ok bye! and return from the function call.
+![alt text](image-11.png)
+
+# Çağırış yığını: Nəticə
+
+Və siz `greet` funksiyasına qayıdırsınız. Ediləcək başqa heç nə yoxdur, buna görə də `greet` funksiyasından da qayıdırsınız. Bir neçə funksiya üçün dəyişənləri saxlamaq üçün istifadə olunan bu yığın, **çağırış yığını** adlanır.
+
+---
+
+## Original text (English)
+
+# Call Stack: Conclusion
+
+And you’re back to the greet function. There’s nothing else to be done, so you return from the greet function, too. This stack, used to save the variables for multiple functions, is called the call stack.
+
+# TAPŞIRIQLAR
+
+Tutaq ki, sizə belə bir çağırış yığını göstərirəm.
+![alt text](image-12.png)
+
+**Cavab:**
+
+Bu çağırış yığınına əsaslanaraq aşağıdakı məlumatları verə bilərik:
+
+1. **`greet` funksiyası çağırılıb:** Yığının ən altında `greet` funksiyası var, bu da onun ilk çağırılan funksiya olduğunu göstərir.
+2. **`greet` funksiyasına ötürülən arqument:** `greet` funksiyasına `name: MAGGIE` arqumenti ötürülüb.
+3. **`greet2` funksiyası `greet` funksiyasından çağırılıb:** `greet2` funksiyası `greet` funksiyasının üstündə yerləşir, bu da `greet` funksiyasının icrası zamanı `greet2` funksiyasının çağırıldığını göstərir.
+4. **`greet2` funksiyasına ötürülən arqument:** `greet2` funksiyasına da `name: MAGGIE` arqumenti ötürülüb.
+5. **Hazırkı icra vəziyyəti:** `greet2` funksiyası yığının ən üstündə olduğu üçün, hazırda bu funksiya icra olunur və ya icrasını yenicə tamamlayıb və geri qayıtmaq üzrədir. `greet` funksiyası isə `greet2` funksiyasının tamamlanmasını gözləyən dayandırılmış vəziyyətdədir.
+# Rekursiya ilə çağırış yığını
+
+Rekursiv funksiyalar da çağırış yığınından istifadə edir! Gəlin bunu faktorial funksiyası ilə işdə görək. `factorial(5)` 5! kimi yazılır və belə təyin olunur: 5! = 5 \* 4 \* 3 \* 2 \* 1. Eynilə, `factorial(3)` 3 \* 2 \* 1-dir. Budur bir rəqəmin faktorialını hesablamaq üçün rekursiv funksiya:
+
+---
+
+## Original text (English)
+
+# The call stack with recursion
+
+Recursive functions use the call stack, too! Let’s look at this in action with the factorial function. factorial(5) is written as 5!, and it’s defined like this: 5! = 5 * 4 * 3 * 2 * 1. Similarly, factorial(3) is 3 * 2 * 1. Here’s a recursive function to calculate the factorial of a number:
+
+```py
+def fact(x):
+ if x == 1:
+ return 1
+ else:
+ return x * fact(x-1)
+```
+```js
+function fact(x) {
+  if (x === 1) return 1;
+  return x * fact(x - 1);
+}
+```
+# Rekursiv çağırış yığını: Addım-addım izahata giriş
+
+İndi `fact(3)` funksiyasını çağıra bilərsiniz. Gəlin bu çağırışı sətir-sətir keçək və yığının necə dəyişdiyini görək. Unutmayın, yığının ən üstündəki qutu sizə hazırda hansı `fact` çağırışında olduğunuzu göstərir.
+
+---
+
+## Original text (English)
+
+# Recursive Call Stack Walkthrough Intro
+
+Now you can call fact(3). Let’s step through this call line by line and see how the stack changes. Remember, the topmost box in the stack tells you what call to fact you’re currently on
+
+![alt text](image-13.png)
+![alt text](image-14.png)
+
+# Rekursiv çağırış yığını: x-in surəti
+
+Diqqət edin ki, `fact` funksiyasına hər bir çağırışın öz `x` surəti var. Siz başqa bir funksiyanın `x` surətinə daxil ola bilməzsiniz. Yığın rekursiyada böyük rol oynayır. Açarı tapmaq üçün açılış nümunəsində iki yanaşma var idi. Budur yenidən birinci yol.
+
+---
+
+## Original text (English)
+
+# Recursive Call Stack: Copy of x
+
+Notice that each call to fact has its own copy of x. You can’t access a different function’s copy of x. The stack plays a big part in recursion. In the opening example, there were two approaches to finding the key. Here’s the first way again.
+![alt text](image-15.png)
+# İterativ axtarış: Yığın
+
+Bu yolla, axtarış etmək üçün bir qutu yığını düzəldirsiniz, beləliklə, hələ də hansı qutuları axtarmalı olduğunuzu həmişə bilirsiniz.
+
+---
+
+## Original text (English)
+
+# Iterative Search: Pile
+
+This way, you make a pile of boxes to search through, so you always know what boxes you still need to search.
+![alt text](image-16.png)
+
+![alt text](image-17.png)
+![alt text](image-18.png)
+# Yığın: Yaddaş xərci
+
+"Qutular yığını" yığında saxlanılır! Bu, yarımçıq funksiya çağırışlarının yığınıdır, hər birinin öz yarımçıq baxılacaq qutular siyahısı var. Yığından istifadə etmək rahatdır, çünki qutular yığınını özünüz izləmək məcburiyyətində qalmırsınız - yığın bunu sizin üçün edir.
+
+Yığından istifadə etmək rahatdır, lakin bunun bir qiyməti var: bütün bu məlumatları saxlamaq çox yaddaş tuta bilər. Həmin funksiya çağırışlarının hər biri bir qədər yaddaş tutur və yığınınız çox hündür olduqda, bu o deməkdir ki, kompüteriniz bir çox funksiya çağırışı üçün məlumatları saxlayır. Bu nöqtədə iki seçiminiz var:
+
+*   Kodunuzu dövrədən istifadə etmək üçün yenidən yaza bilərsiniz.
+*   Quyruq rekursiyası adlanan bir şeydən istifadə edə bilərsiniz. Bu, bu kitabın əhatə dairəsindən kənarda olan qabaqcıl bir rekursiya mövzusudur. O, həmçinin yalnız bəzi dillər tərəfindən dəstəklənir, hamısı tərəfindən deyil.
+
+---
+
+## Original text (English)
+
+# Stack Memory Cost
+
+The “pile of boxes” is saved on the stack! This is a stack of halfcompleted function calls, each with its own half-complete list of boxes to look through. Using the stack is convenient because you don’t have to keep track of a pile of boxes yourself—the stack does it for you. Using the stack is convenient, but there’s a cost: saving all that info can take up a lot of memory. Each of those function calls takes up some memory, and when your stack is too tall, that means your computer is saving information for many function calls. At that point, you have two options: • You can rewrite your code to use a loop instead. • You can use something called tail recursion. That’s an advanced recursion topic that is out of the scope of this book. It’s also only supported by some languages, not all.
+# TAPŞIRIQ 3.2
+
+Tutaq ki, təsadüfən sonsuza qədər işləyən rekursiv funksiya yazdınız. Gördüyünüz kimi, kompüteriniz hər funksiya çağırışı üçün yığında yaddaş ayırır. Rekursiv funksiyanız sonsuza qədər işlədikdə yığına nə baş verir?
+
+**Cavab:**
+
+Rekursiv funksiya sonsuza qədər işlədikdə, hər yeni funksiya çağırışı üçün yığında yeni bir çərçivə (stack frame) ayrılır. Bu, yığının daim böyüməsinə səbəb olur. Nəticədə, yığın kompüterin ona ayrılmış yaddaş limitini aşır. Bu vəziyyət **"Stack Overflow" (Yığın Daşması)** adlanır.
+
+Stack Overflow baş verdikdə, proqramınız qəza edir və adətən bir xəta mesajı (məsələn, "RecursionError: maximum recursion depth exceeded" Python-da) ilə dayandırılır. Bu, kompüterin yaddaşının tükənməsinin bir növüdür, çünki hər bir funksiya çağırışının dəyişənləri və icra vəziyyəti yaddaşda saxlanılır və sonsuz rekursiya bu yaddaşı tükəndirir.
+
+---
+
+## Original text (English)
+
+# EXERCISE 3.2
+
+Suppose you accidentally write a recursive function that runs forever. As you saw, your computer allocates memory on the stack for each function call. What happens to the stack when your recursive function runs forever?
+# Xülasə
+
+*   Rekursiya, bir funksiyanın özünü çağırmasıdır.
+*   Hər rekursiv funksiyanın iki halı var: əsas hal və rekursiv hal.
+*   Yığının iki əməliyyatı var: `push` və `pop`.
+*   Bütün funksiya çağırışları çağırış yığınına daxil olur.
+*   Çağırış yığını çox böyük ola bilər ki, bu da çox yaddaş tutur.
+
+---
+
+## Original text (English)
+
+# Recap
+
+*   Recursion is when a function calls itself.
+*   Every recursive function has two cases: the base case and the recursive case.
+*   A stack has two operations: push and pop.
+*   All function calls go onto the call stack.
+*   The call stack can get very large, which takes up a lot of memory.
+
+
+
+
+
+
+
+
 
 
 
